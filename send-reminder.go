@@ -2,11 +2,12 @@ package main
 
 import (
     "fmt"
+    "os"
     "github.com/slack-go/slack"
 )
 
 func main() {
-    api := slack.New("xoxb-2895394241809-2882746748658-3acoYBuUYpPwFIdUg4dWM5yN")
+    api := slack.New(os.Getenv("OAUTH_BOT_TOKEN"))
 
     channelID, timestamp, err := api.PostMessage(
         "C02SBBMHBL1",

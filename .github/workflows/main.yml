@@ -1,4 +1,7 @@
-on: push
+on:
+  schedule:
+    - cron: 00 18 * 1-6 FRI
+    - cron: 00 18 * 10-12 FRI
 
 jobs:
   build:
@@ -6,7 +9,9 @@ jobs:
     strategy:
       matrix:
         go: [ '1.14' ]
-    name: Go ${{ matrix.go }} sample
+    env:
+      OAUTH_BOT_TOKEN: ${{ secrets.OAUTH_BOT_TOKEN }}
+      name: Go ${{ matrix.go }} sample
     steps:
       - uses: actions/checkout@v2
       - name: Setup go
