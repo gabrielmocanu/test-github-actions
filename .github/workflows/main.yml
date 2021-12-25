@@ -2,7 +2,7 @@ on: push
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     strategy:
       matrix:
         go: [ '1.14' ]
@@ -13,4 +13,6 @@ jobs:
         uses: actions/setup-go@v2
         with:
           go-version: ${{ matrix.go }}
-      - run: go run hello-world.go
+      - name: Get slack-go API
+        run: go get -u github.com/slack-go/slack
+      - run: go run send-reminder.go
