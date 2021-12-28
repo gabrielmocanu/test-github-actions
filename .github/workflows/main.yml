@@ -1,7 +1,9 @@
-on:
-  schedule:
-    - cron: 00 18 * 1-6 FRI
-    - cron: 00 18 * 10-12 FRI
+#on:
+#  schedule:
+#    - cron: 00 18 * 1-6 FRI
+#    - cron: 00 18 * 10-12 FRI
+name: checkpatch review
+on: [push]
 
 jobs:
   build:
