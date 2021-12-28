@@ -21,3 +21,12 @@ jobs:
       - name: Get slack-go API
         run: go get -u github.com/slack-go/slack
       - run: go run send-reminder.go
+
+  
+  checkpatch_review:
+    name: checkpatch review
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v1
+      - name: Run checkpatch review
+        uses: webispy/checkpatch-action@master
