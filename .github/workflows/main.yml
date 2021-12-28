@@ -6,23 +6,23 @@ name: checkpatch review
 on: [push]
 
 jobs:
-  build:
-    runs-on: ubuntu-18.04
-    strategy:
-      matrix:
-        go: [ '1.14' ]
-    env:
-      OAUTH_BOT_TOKEN: ${{ secrets.OAUTH_BOT_TOKEN }}
-      name: Go ${{ matrix.go }} sample
-    steps:
-      - uses: actions/checkout@v2
-      - name: Setup go
-        uses: actions/setup-go@v2
-        with:
-          go-version: ${{ matrix.go }}
-      - name: Get slack-go API
-        run: go get -u github.com/slack-go/slack
-      - run: go run send-reminder.go
+  #  build:
+  #    runs-on: ubuntu-18.04
+  #    strategy:
+  #      matrix:
+  #        go: [ '1.14' ]
+  #    env:
+  #      OAUTH_BOT_TOKEN: ${{ secrets.OAUTH_BOT_TOKEN }}
+  #      name: Go ${{ matrix.go }} sample
+  #    steps:
+  #      - uses: actions/checkout@v2
+  #      - name: Setup go
+  #        uses: actions/setup-go@v2
+  #        with:
+  #          go-version: ${{ matrix.go }}
+  #      - name: Get slack-go API
+  #        run: go get -u github.com/slack-go/slack
+  #      - run: go run send-reminder.go
 
   
   checkpatch_review:
