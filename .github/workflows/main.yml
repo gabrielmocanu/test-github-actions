@@ -1,34 +1,10 @@
-#on:
-#  schedule:
-#    - cron: 00 18 * 1-6 FRI
-#    - cron: 00 18 * 10-12 FRI
 name: checkpatch review
-on: [push]
-
+on: [pull_request]
 jobs:
-  #  build:
-  #    runs-on: ubuntu-18.04
-  #    strategy:
-  #      matrix:
-  #        go: [ '1.14' ]
-  #    env:
-  #      OAUTH_BOT_TOKEN: ${{ secrets.OAUTH_BOT_TOKEN }}
-  #      name: Go ${{ matrix.go }} sample
-  #    steps:
-  #      - uses: actions/checkout@v2
-  #      - name: Setup go
-  #        uses: actions/setup-go@v2
-  #        with:
-  #          go-version: ${{ matrix.go }}
-  #      - name: Get slack-go API
-  #        run: go get -u github.com/slack-go/slack
-  #      - run: go run send-reminder.go
-
-  
-  checkpatch_review:
+  my_review:
     name: checkpatch review
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - name: Run checkpatch review
-        uses: webispy/checkpatch-action@master
+    - uses: actions/checkout@v1
+    - name: Run checkpatch review
+      uses: webispy/checkpatch-action@master
