@@ -1,33 +1,17 @@
-name: checkpatch review
+name: superlinter
 on:
   workflow_dispatch:
   push:
     branches:
       - main
 
-env:
-  PATH_TEST: /var/coda/update/footprint/console/$GITHUB_REF_NAME/
-  PATH_REF_TEST: /var/coda/update/footprint/console/${{ github.ref_name }}/
-  PATH_REF_TEST_2: /var/coda/update/footprint/console/${{ github.head_ref || github.ref_name }}/
-
-
 
 jobs:
   my_review:
-    name: checkpatch review
+    name: superlinter
     runs-on: ubuntu-latest
     steps:
-      - name: 📥 Checkout
-        uses: actions/checkout@v3
-
-      - name: Print PATH_TEST
-        run: echo ${{ env.PATH_TEST }}
-
-      - name: Print PATH_REF_TEST
-        run: echo ${{ env.PATH_REF_TEST }}
-
-      - name: Print PATH_REF_TEST_2
-        run: echo ${{ env.PATH_REF_TEST_2 }}
-
-      - name: Run checkpatch review
-        uses: webispy/checkpatch-action@master
+      - name: 📥 SuperLinter
+        uses: security-summer-school/actions/super-linter@main
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
