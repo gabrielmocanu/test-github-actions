@@ -10,6 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 📥 labeler
-        uses: open-education-hub/actions/labeler@main
+        uses: open-education-hub/actions/cron-labeler@main
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
