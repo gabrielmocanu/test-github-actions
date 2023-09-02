@@ -1,9 +1,8 @@
 name: labeler
 on:
   schedule:
-  - cron: "0 */12 * * *"
+    - cron: "0 */12 * * *"
   workflow_dispatch:
-
 
 jobs:
   labeler:
@@ -11,6 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 📥 labeler
-        uses: security-summer-school/actions/labeler@main
+        uses: open-education-hub/actions/labeler@main
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
