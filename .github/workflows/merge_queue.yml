@@ -1,0 +1,13 @@
+name: merge_queue
+on:
+  merge_queue:
+
+jobs:
+  labeler:
+    name: merge_queue
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📥 merge_queue
+        shell: bash
+        run: |
+          echo "📥 merge_queue"

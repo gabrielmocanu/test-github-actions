@@ -1,0 +1,13 @@
+name: unit_tests
+on:
+  pull_request:
+
+jobs:
+  labeler:
+    name: unit_tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📥 unit_tests
+        shell: bash
+        run: |
+          echo "📥 unit_tests"
