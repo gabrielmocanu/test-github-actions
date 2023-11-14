@@ -1,6 +1,6 @@
 name: merge_queue
 on:
-  merge_queue:
+  merge_group:
 
 jobs:
   labeler:
